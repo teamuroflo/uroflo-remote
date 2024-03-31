@@ -7,7 +7,7 @@ import WasteRate from "./components/WasteRate";
 
 function App() {
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center">
+    <div className="w-screen h-full md:h-screen bg-slate-900 flex flex-col justify-start items-center">
       <Hematuria />
       <div className="max-w-[900px] w-full flex flex-col md:flex-row justify-center items-center">
         <SupplyVolume />

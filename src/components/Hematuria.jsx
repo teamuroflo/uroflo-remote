@@ -6,7 +6,7 @@ const Hematuria = () => {
   const level = 60;
 
   return (
-    <div className="max-w-[900px] w-full h-full p-4">
+    <div className="max-w-[900px] w-full p-4">
       <div
         className="w-full h-[162px] bg-slate-800 rounded-2xl 
                        flex flex-col justify-between items-center px-5 py-4"
