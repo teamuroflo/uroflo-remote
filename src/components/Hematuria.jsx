@@ -1,12 +1,50 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+// import { IoTriangle } from "react-icons/io5";
 import { TbTriangleInvertedFilled } from "react-icons/tb";
 
+const convertLevelToSeverity = (level) => {
+  if (level < 25) {
+    return "CLEAR";
+  } else if (level >= 25 && level < 50) {
+    return "MILD";
+  } else if (level >= 50 && level < 75) {
+    return "MODERATE";
+  } else {
+    return "SEVERE";
+  }
+};
+
 const Hematuria = () => {
-  let percent = 10;
-  let severity = "MODERATE";
-  const level = 60;
+  const [percent, setPercent] = useState(0);
+  const [level, setLevel] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      axios
+        .get("https://uroflo.loca.lt/system") // API endpoint
+        .then((response) => setPercent(response.data.hematuria_percent)) // response key
+        .catch((error) => console.error(error));
+    }, 1000); // fetch every 1 second
+
+    return () => clearInterval(intervalId); // clean up on component unmount
+  }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      axios
+        .get("https://uroflo.loca.lt/system") // API endpoint
+        .then((response) => setLevel(response.data.hematuria_level)) // response key
+        .catch((error) => console.error(error));
+    }, 1000); // fetch every 1 second
+
+    return () => clearInterval(intervalId); // clean up on component unmount
+  }, []);
+
+  let severity = convertLevelToSeverity(level); // changes value to "CLEAR", "MILD", "MODERATE", or "SEVERE"
 
   return (
-    <div className="max-w-[900px] w-full p-4">
+    <div className="max-w-[900px] w-full px-4 pb-4">
       <div
         className="w-full h-[162px] bg-slate-800 rounded-2xl 
                        flex flex-col justify-between items-center px-5 py-4"

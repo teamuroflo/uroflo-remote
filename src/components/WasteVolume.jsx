@@ -1,15 +1,50 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 const WasteVolume = () => {
-  let volume = 3531;
-  let totalVolume = 5000;
+  let [volume, setVolume] = useState(0);
+  let [totalVolume, setTotalVolume] = useState(1);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      axios
+        .get("https://uroflo.loca.lt/system") // replace with your API endpoint
+        .then((response) => setTotalVolume(response.data.waste_volume_total)) // replace 'rate' with the actual key in the response
+        .catch((error) => console.error(error));
+    }, 1000); // fetch every 1 second
+
+    return () => clearInterval(intervalId); // clean up on component unmount
+  }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      axios
+        .get("https://uroflo.loca.lt/system") // replace with your API endpoint
+        .then((response) => setVolume(response.data.waste_volume)) // replace 'rate' with the actual key in the response
+        .catch((error) => console.error(error));
+    }, 1000); // fetch every 1 second
+
+    return () => clearInterval(intervalId); // clean up on component unmount
+  }, []);
 
   volume = volume / 1000;
   totalVolume = totalVolume / 1000;
+
   let percent = Math.round((volume / totalVolume) * 100);
   percent = isNaN(percent) ? 0 : percent;
 
-  let time = 500;
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      axios
+        .get("https://uroflo.loca.lt/system") // replace with your API endpoint
+        .then((response) => setTime(response.data.waste_time)) // replace 'rate' with the actual key in the response
+        .catch((error) => console.error(error));
+    }, 1000); // fetch every 1 second
+
+    return () => clearInterval(intervalId); // clean up on component unmount
+  }, []);
 
   let hours = Math.floor(time / 60);
   let minutes = time % 60;

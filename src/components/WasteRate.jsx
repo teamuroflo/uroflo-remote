@@ -1,7 +1,20 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const WasteRate = () => {
-  let rate = 100;
+  //  let rate = 63; // Change this value to a number between 0 and 100
+  const [rate, setRate] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      axios
+        .get("https://uroflo.loca.lt/system") // replace with your API endpoint
+        .then((response) => setRate(response.data.waste_rate)) // replace 'rate' with the actual key in the response
+        .catch((error) => console.error(error));
+    }, 1000); // fetch every 1 second
+
+    return () => clearInterval(intervalId); // clean up on component unmount
+  }, []);
 
   return (
     <div className="max-w-[900px] w-full h-full px-4 md:pl-0 pb-4">

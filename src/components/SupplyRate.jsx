@@ -1,7 +1,19 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 const SupplyRate = () => {
-  let rate = 100;
+  const [rate, setRate] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      axios
+        .get("https://uroflo.loca.lt/system")
+        .then((response) => setRate(response.data.supply_rate))
+        .catch((error) => console.error(error));
+    }, 1000); // fetch every 1 second
+
+    return () => clearInterval(intervalId); // clean up on component unmount
+  }, []);
 
   return (
     <div className="max-w-[900px] w-full h-full px-4 pb-4">
