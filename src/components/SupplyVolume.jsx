@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 
 const SupplyVolume = () => {
   let [volume, setVolume] = useState(0);
@@ -8,7 +9,7 @@ const SupplyVolume = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://uroflo.loca.lt/system") // replace with your API endpoint
+        .get(`${API_URL}/system`) // replace with your API endpoint
         .then((response) => setTotalVolume(response.data.supply_volume_total)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -19,7 +20,7 @@ const SupplyVolume = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://uroflo.loca.lt/system") // replace with your API endpoint
+        .get(`${API_URL}/system`) // replace with your API endpoint
         .then((response) => setVolume(response.data.supply_volume)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -37,7 +38,7 @@ const SupplyVolume = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://uroflo.loca.lt/system") // replace with your API endpoint
+        .get(`${API_URL}/system`) // replace with your API endpoint
         .then((response) => setTime(response.data.supply_time)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second

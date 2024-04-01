@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { API_URL } from "../config";
 
 const SupplyRate = () => {
   const [rate, setRate] = useState(0);
@@ -7,7 +8,7 @@ const SupplyRate = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://uroflo.loca.lt/system")
+        .get(`${API_URL}/system`)
         .then((response) => setRate(response.data.supply_rate))
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second

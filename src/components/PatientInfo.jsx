@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 
 const PatientInfo = () => {
   const [firstName, setFirstName] = useState("");
@@ -40,7 +41,7 @@ const PatientInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://e4807330d000efa23ab02bc5e0a22710.serveo.net/patient") // replace with your API endpoint
+        .get(`${API_URL}/patient`) // replace with your API endpoint
         .then((response) => setFirstName(response.data.firstname)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -51,7 +52,7 @@ const PatientInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://e4807330d000efa23ab02bc5e0a22710.serveo.net/patient") // replace with your API endpoint
+        .get(`${API_URL}/patient`) // replace with your API endpoint
         .then((response) => setLastName(response.data.lastname)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -62,7 +63,7 @@ const PatientInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://e4807330d000efa23ab02bc5e0a22710.serveo.net/patient") // replace with your API endpoint
+        .get(`${API_URL}/patient`) // replace with your API endpoint
         .then((response) => setMRN(response.data.MRN)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -73,7 +74,7 @@ const PatientInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://e4807330d000efa23ab02bc5e0a22710.serveo.net/patient") // replace with your API endpoint
+        .get(`${API_URL}/patient`) // replace with your API endpoint
         .then((response) => setDOB(response.data.DOB)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -84,7 +85,7 @@ const PatientInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://e4807330d000efa23ab02bc5e0a22710.serveo.net/patient") // replace with your API endpoint
+        .get(`${API_URL}/patient`) // replace with your API endpoint
         .then((response) => setSex(response.data.sex)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -95,7 +96,7 @@ const PatientInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://e4807330d000efa23ab02bc5e0a22710.serveo.net/patient") // replace with your API endpoint
+        .get(`${API_URL}/patient`) // replace with your API endpoint
         .then((response) => setContactA(response.data.contact_A)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -106,7 +107,7 @@ const PatientInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://e4807330d000efa23ab02bc5e0a22710.serveo.net/patient") // replace with your API endpoint
+        .get(`${API_URL}/patient`) // replace with your API endpoint
         .then((response) => setContactB(response.data.contact_B)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -117,7 +118,7 @@ const PatientInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://e4807330d000efa23ab02bc5e0a22710.serveo.net/system") // replace with your API endpoint
+        .get(`${API_URL}/system`) // replace with your API endpoint
         .then((response) => setActiveTime(response.data.active_time)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second

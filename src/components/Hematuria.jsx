@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 // import { IoTriangle } from "react-icons/io5";
 import { TbTriangleInvertedFilled } from "react-icons/tb";
+import { API_URL } from "../config";
 
 const convertLevelToSeverity = (level) => {
   if (level < 25) {
@@ -22,7 +23,7 @@ const Hematuria = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://uroflo.loca.lt/system") // API endpoint
+        .get(`${API_URL}/system`) // API endpoint
         .then((response) => setPercent(response.data.hematuria_percent)) // response key
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -33,7 +34,7 @@ const Hematuria = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://uroflo.loca.lt/system") // API endpoint
+        .get(`${API_URL}/system`) // API endpoint
         .then((response) => setLevel(response.data.hematuria_level)) // response key
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second

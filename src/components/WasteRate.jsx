@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 
 const WasteRate = () => {
-  //  let rate = 63; // Change this value to a number between 0 and 100
   const [rate, setRate] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("https://uroflo.loca.lt/system") // replace with your API endpoint
+        .get(`${API_URL}/system`) // replace with your API endpoint
         .then((response) => setRate(response.data.waste_rate)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
