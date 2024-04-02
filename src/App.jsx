@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="w-screen h-full md:h-screen bg-slate-900 flex flex-col justify-start items-center">
       <div className="max-w-[900px] w-full flex justify-start items-center p-4">
-        <img src={UroFloLogo} alt="uroflo" className="w-60" />
+        <img src={UroFloLogo} alt="uroflo" className="w-52" />
       </div>
       <PatientInfo />
       <Hematuria />
