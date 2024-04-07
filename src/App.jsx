@@ -9,7 +9,7 @@ import Status from "./components/Status";
 
 function App() {
   return (
-    <div className="w-screen h-full md:h-screen bg-slate-900 flex flex-col justify-start items-center">
+    <div className="w-screen h-full md:h-screen bg-slate-950 flex flex-col justify-start items-center">
       <div className="max-w-[900px] w-full flex justify-start items-center p-4">
         <img src={UroFloLogo} alt="uroflo" className="w-52" />
       </div>

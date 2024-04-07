@@ -52,7 +52,7 @@ const SupplyVolume = () => {
   return (
     <div className="max-w-[900px] w-full h-full px-4 pb-4">
       <div
-        className="w-full h-[162px] bg-slate-800 rounded-2xl
+        className="w-full h-[162px] bg-slate-900 rounded-2xl
                        flex flex-row "
       >
         <div className="w-[95%] flex flex-col justify-between items-start px-5 py-4">

@@ -47,7 +47,7 @@ const Hematuria = () => {
   return (
     <div className="max-w-[900px] w-full px-4 pb-4">
       <div
-        className="w-full h-[162px] bg-slate-800 rounded-2xl 
+        className="w-full h-[162px] bg-slate-900 rounded-2xl 
                        flex flex-col justify-between items-center px-5 py-4"
       >
         <div className="w-full flex justify-between">
