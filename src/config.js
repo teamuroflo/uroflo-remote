@@ -1,2 +1,2 @@
-const API_URL = "https://e4807330d000efa23ab02bc5e0a22710.serveo.net";
+const API_URL = "https://34a1149e2883a41e8382b0052bb22ec3.serveo.net/";
 export { API_URL };
