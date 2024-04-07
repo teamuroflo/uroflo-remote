@@ -23,7 +23,7 @@ const Status = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("http://localhost:8000/system") // replace with your API endpoint
+        .get(`${API_URL}/system`) // replace with your API endpoint
         .then((response) => setStatusLevel(response.data.status_level)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
@@ -34,7 +34,7 @@ const Status = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get("http://localhost:8000/system") // replace with your API endpoint
+        .get(`${API_URL}/system`) // replace with your API endpoint
         .then((response) => setStatusMessage(response.data.status_message)) // replace 'rate' with the actual key in the response
         .catch((error) => console.error(error));
     }, 1000); // fetch every 1 second
