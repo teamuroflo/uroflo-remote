@@ -126,7 +126,7 @@ const PatientInfo = () => {
     return () => clearInterval(intervalId); // clean up on component unmount
   }, []);
 
-  return (
+  return sex && (sex === "M" || sex === "F") ? (
     <div className="max-w-[900px] w-full p-4 flex flex-row text-slate-200">
       <div className="h-full w-[60%] flex flex-col items-start justify-end">
         <div className="text-lg md:text-xl flex flex-col items-start">
@@ -152,6 +152,8 @@ const PatientInfo = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <div className="p-2"></div>
   );
 };
 
