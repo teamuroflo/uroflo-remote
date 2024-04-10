@@ -1,2 +1,2 @@
-const API_URL = "https://96d0ae46bd8870931e660c772a8f73c5.serveo.net";
+const API_URL = "https://silent-quail-13.telebit.io";
 export { API_URL };
